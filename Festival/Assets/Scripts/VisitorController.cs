@@ -90,6 +90,7 @@ public class VisitorController : MonoBehaviour {
 		if (transform.position == target.transform.position) {
 			highestPriority.value = 100;
 		}
+		transform.LookAt (target.transform.position);
 	}
 
 	void OnTriggerEnter(Collider other)
