@@ -28,4 +28,8 @@ public class VisitorPanel : MonoBehaviour {
 	public void Close(){
 		gameObject.SetActive(false);
 	}
+
+	void Start(){
+		gameObject.SetActive (false);
+	}
 }

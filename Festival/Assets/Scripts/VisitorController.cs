@@ -15,18 +15,22 @@ public class VisitorController : MonoBehaviour {
 	public float overallHapiness;
 	string name = "Chuck Norris";
 
-	public GameObject visitorPanel;
+	GameObject visitorPanel;
 
 	Need bladder;
 	Need hunger;
 	Need hygiene;
 	Need fun;
+	Need sleep;
+	Need thirst;
 
 	SceneObject sceneObject;
 
 	private Animator animator;
 
-	void Avake(){
+
+	void Awake(){
+		visitorPanel = GameObject.FindGameObjectWithTag("VisitorPanel");
 		animator = GetComponent<Animator>();
 	}
 

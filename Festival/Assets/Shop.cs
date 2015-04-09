@@ -7,6 +7,8 @@ public class Shop : MonoBehaviour {
 	public GameObject bathroomPrefab;
 	public GameObject funPrefab;
 	public GameObject hygienePrefab;
+	public GameObject thirstPrefab;
+
 	GameObject selectedObject;
 	SceneObject sceneObject;
 
@@ -51,7 +53,14 @@ public class Shop : MonoBehaviour {
 		prefab.transform.position = new Vector3(0,0,0);	
 		selectedObject = prefab;
 	}
-
+	public void CreateThirstShop(){	
+		GameObject prefab = (GameObject)Instantiate (thirstPrefab, Vector3.zero, Quaternion.identity);
+		sceneObject.allObjects.Add (prefab);
+		sceneObject.thirstObjects.Add (prefab);
+		
+		prefab.transform.position = new Vector3(0,0,0);	
+		selectedObject = prefab;
+	}
 	public void ConfirmPosition(){
 		selectedObject = null;
 	}
