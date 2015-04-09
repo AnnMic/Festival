@@ -61,11 +61,11 @@ public class VisitorController : MonoBehaviour {
 
 	void UpdateNeed(){
 		sortedNeeds = sortedNeeds.OrderBy(o=>o.value).ToList();
-		if (highestPriority != sortedNeeds.First () || highestPriority == null) {
-			highestPriority = sortedNeeds.First ();
-			MoveTowards ();
-			currentNeed = highestPriority.need;
-		}
+		Debug.Log("Sets first need" + highestPriority);
+		highestPriority = sortedNeeds.First ();
+		MoveTowards ();
+		currentNeed = highestPriority.need;
+
 		CalculateOverallHapiness ();
 	}
 
@@ -121,15 +121,13 @@ public class VisitorController : MonoBehaviour {
 		float step = 3.0f * Time.deltaTime;
 
 		transform.position = Vector3.MoveTowards (this.gameObject.transform.position, target.transform.position, step);
-		if (transform.position == target.transform.position) {
-			highestPriority.value = 100;
-		}
+
 		transform.LookAt (target.transform.position);
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if(other.gameObject.tag==currentNeed.ToString()){
-			//highestPriority.value = 100;
+		if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == currentNeed){
+			highestPriority.value = 100;
 		}
 		animator.SetInteger("State", AnimationConstants.IDLE);
 	}
