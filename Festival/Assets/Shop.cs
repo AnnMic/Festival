@@ -10,7 +10,7 @@ public class Shop : MonoBehaviour {
 
 
 	public void CreateFoodShop(){		
-		GameObject tile = (GameObject)Instantiate (bathroomPrefab, Vector3.zero, Quaternion.identity);
+		GameObject tile = (GameObject)Instantiate (foodPrefab, Vector3.zero, Quaternion.identity);
 		tile.transform.position = new Vector3(0,0,0);
 
 	}
@@ -22,14 +22,14 @@ public class Shop : MonoBehaviour {
 	}
 
 	public void CreateFunShop(){	
-		GameObject tile = (GameObject)Instantiate (bathroomPrefab, Vector3.zero, Quaternion.identity);
+		GameObject tile = (GameObject)Instantiate (funPrefab, Vector3.zero, Quaternion.identity);
 		tile.transform.position = new Vector3(0,0,0);
 		
 	}
 
 	public void CreateHygieneShop(){
 		
-		GameObject tile = (GameObject)Instantiate (bathroomPrefab, Vector3.zero, Quaternion.identity);
+		GameObject tile = (GameObject)Instantiate (hygienePrefab, Vector3.zero, Quaternion.identity);
 		tile.transform.position = new Vector3(0,0,0);
 		
 	}
