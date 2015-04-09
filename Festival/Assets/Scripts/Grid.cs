@@ -4,8 +4,8 @@ using System.Collections;
 public class Grid : MonoBehaviour {
 
 	public GameObject tilePrefab;
-	int nbrOfRows = 50;
-	int nbrOfColumns = 50;
+	int nbrOfRows = 20;
+	int nbrOfColumns = 20;
 	public int[,] grid;
 
 	// Use this for initialization
