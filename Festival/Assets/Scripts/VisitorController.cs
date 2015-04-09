@@ -13,6 +13,8 @@ public class VisitorController : MonoBehaviour {
 
 	GameObject target;
 
+	public float overallHapiness;
+
 	// Use this for initialization
 	void Start () {
 		target = gameObject;
@@ -46,7 +48,7 @@ public class VisitorController : MonoBehaviour {
 			MoveTowards ();
 			currentNeed = highestPriority.need;
 		}
-
+		CalculateOverallHapiness ();
 	}
 
 	void MoveTowards(){
@@ -71,6 +73,14 @@ public class VisitorController : MonoBehaviour {
 
 			break;
 		}
+	}
+
+	private void CalculateOverallHapiness(){
+		float total = 0;
+		foreach (Need need in sortedNeeds){
+			total += need.value;
+		}
+		overallHapiness = total / (float)sortedNeeds.Count;
 	}
 
 	void Update(){
