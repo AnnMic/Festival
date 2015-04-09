@@ -19,7 +19,7 @@ public class Grid : MonoBehaviour {
 				tile.transform.SetParent(transform);
 				//tileTransform.SetParent (parentContent.transform, false);
 				tile.transform.position = new Vector3(10*row,0,10*column);
-
+				tile.name = string.Format("tile_{0}_{1}", row, column);
 				grid[row,column] = 0; // all empty
 			}
 		}

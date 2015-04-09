@@ -15,21 +15,14 @@ public class VisitorController : MonoBehaviour {
 	public float overallHapiness;
 	string name = "Chuck Norris";
 
-	public GameObject visitorPanel;
-
-	Need bladder;
-	Need hunger;
-	Need hygiene;
-	Need fun;
-
 	// Use this for initialization
 	void Start () {
 		target = gameObject;
 
-		bladder = gameObject.AddComponent<Need> ();
-		hunger = gameObject.AddComponent<Need>();
-		hygiene = gameObject.AddComponent<Need> ();
-		fun = gameObject.AddComponent<Need>();
+		Need bladder = gameObject.AddComponent<Need>();
+		Need hunger = gameObject.AddComponent<Need>();
+		Need hygiene = gameObject.AddComponent<Need>();
+		Need fun = gameObject.AddComponent<Need>();
 
 
 		bladder.CreateNeed (Needs.BLADDER, Random.Range(1f, 5f));
@@ -82,7 +75,7 @@ public class VisitorController : MonoBehaviour {
 		}
 	}
 
-	private void CalculateOverallHapiness() {
+	private void CalculateOverallHapiness(){
 		float total = 0;
 		foreach (Need need in sortedNeeds){
 			total += need.value;
@@ -90,25 +83,25 @@ public class VisitorController : MonoBehaviour {
 		overallHapiness = total / (float)sortedNeeds.Count;
 	}
 
-	void Update() {
-		float step = 3.0f * Time.deltaTime;
+	void Update(){
+		float step = 7.0f * Time.deltaTime;
 
 		transform.position = Vector3.MoveTowards (this.gameObject.transform.position, target.transform.position, step);
 		if (transform.position == target.transform.position) {
 			highestPriority.value = 100;
 		}
-		transform.LookAt (target.transform.position);
 	}
 
-	void OnTriggerEnter(Collider other) {
+	void OnTriggerEnter(Collider other)
+	{
 		if(other.gameObject.tag==currentNeed.ToString()){
 			highestPriority.value = 100;
 		}
 	}
 
-	void OnMouseDown() {
-		visitorPanel.SetActive (true);
-		VisitorPanel panel = visitorPanel.GetComponent<VisitorPanel> ();
-		panel.SetStats (overallHapiness / 100, name, hunger.value, fun.value,0.5f,hygiene.value,0.5f,bladder.value);
+	void OnMouseDown()
+	{
+		Debug.Log("Clicked on visitor");
 	}
+
 }
