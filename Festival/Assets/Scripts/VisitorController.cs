@@ -22,6 +22,8 @@ public class VisitorController : MonoBehaviour {
 	Need hygiene;
 	Need fun;
 
+	SceneObject sceneObject;
+
 	// Use this for initialization
 	void Start () {
 		target = gameObject;
@@ -31,6 +33,8 @@ public class VisitorController : MonoBehaviour {
 		hygiene = gameObject.AddComponent<Need> ();
 		fun = gameObject.AddComponent<Need>();
 
+		GameObject map = GameObject.FindGameObjectWithTag ("Map");
+		sceneObject = map.GetComponent<SceneObject> ();
 
 		bladder.CreateNeed (Needs.BLADDER, Random.Range(1f, 5f));
 		sortedNeeds.Add (bladder);
@@ -59,24 +63,32 @@ public class VisitorController : MonoBehaviour {
 	}
 
 	void MoveTowards(){
-
+		int random = 0;
 		switch (highestPriority.need)
 		{
 		case Needs.BLADDER:
-			target = GameObject.FindGameObjectWithTag("BLADDER");
+			if(sceneObject.bladderObjects.Count > 0)
+				Debug.Log("count" + sceneObject.bladderObjects.Count);
+				random = Random.Range(0, sceneObject.bladderObjects.Count);
+				Debug.Log("random"+ random);
+				target = sceneObject.bladderObjects[random];
 			break;
 		case Needs.HUNGER:
-			target = GameObject.FindGameObjectWithTag("HUNGER");
+			if(sceneObject.bladderObjects.Count > 0)
+				target = sceneObject.hungerObjects[Random.Range(0, sceneObject.hungerObjects.Count)];
 			break;
-		case Needs.FUN:
-			target = GameObject.FindGameObjectWithTag("FUN");
+		case Needs.FUN:			
+			if(sceneObject.bladderObjects.Count > 0)
+				target = sceneObject.funObjects[Random.Range(0, sceneObject.funObjects.Count)];
 			break;
 		case Needs.HYGIENE:
-			target = GameObject.FindGameObjectWithTag("HYGIENE");
+			if(sceneObject.bladderObjects.Count > 0)
+				target = sceneObject.hygieneObjects[Random.Range(0, sceneObject.hygieneObjects.Count)];
 			break;
 		default:
 			Debug.Log("Move to default: fun");
-			target = GameObject.FindGameObjectWithTag("FUN");
+			if(sceneObject.bladderObjects.Count > 0)
+				target = sceneObject.funObjects[Random.Range(0, sceneObject.funObjects.Count)];
 
 			break;
 		}
