@@ -68,27 +68,24 @@ public class VisitorController : MonoBehaviour {
 		{
 		case Needs.BLADDER:
 			if(sceneObject.bladderObjects.Count > 0)
-				Debug.Log("count" + sceneObject.bladderObjects.Count);
-				random = Random.Range(0, sceneObject.bladderObjects.Count);
-				Debug.Log("random"+ random);
-				target = sceneObject.bladderObjects[random];
+				target = sceneObject.bladderObjects[0];
 			break;
 		case Needs.HUNGER:
 			if(sceneObject.bladderObjects.Count > 0)
-				target = sceneObject.hungerObjects[Random.Range(0, sceneObject.hungerObjects.Count)];
+				target = sceneObject.hungerObjects[0];
 			break;
 		case Needs.FUN:			
 			if(sceneObject.bladderObjects.Count > 0)
-				target = sceneObject.funObjects[Random.Range(0, sceneObject.funObjects.Count)];
+				target = sceneObject.funObjects[0];
 			break;
 		case Needs.HYGIENE:
 			if(sceneObject.bladderObjects.Count > 0)
-				target = sceneObject.hygieneObjects[Random.Range(0, sceneObject.hygieneObjects.Count)];
+				target = sceneObject.hygieneObjects[0];
 			break;
 		default:
 			Debug.Log("Move to default: fun");
 			if(sceneObject.bladderObjects.Count > 0)
-				target = sceneObject.funObjects[Random.Range(0, sceneObject.funObjects.Count)];
+				target = sceneObject.funObjects[0];
 
 			break;
 		}
