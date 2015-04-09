@@ -40,15 +40,17 @@ public class Editor : MonoBehaviour {
 		}
 		if (Input.GetMouseButtonUp(0)){
 			// release dragged object if any
-			RaycastHit[] hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition));
-			foreach(RaycastHit hit in hits){
-				if (hit.transform.tag == "Grid"){
-					draggedObject.transform.position = new Vector3(hit.transform.position.x,
-					                                               draggedObject.transform.position.y,
-					                                               hit.transform.position.z);
+			if (draggedObject != null){
+				RaycastHit[] hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition));
+				foreach(RaycastHit hit in hits){
+					if (hit.transform.tag == "Grid"){
+						draggedObject.transform.position = new Vector3(hit.transform.position.x,
+						                                               draggedObject.transform.position.y,
+						                                               hit.transform.position.z);
+					}
 				}
+				draggedObject = null;
 			}
-			draggedObject = null;
 		}
 		if (draggedObject != null){
 			// drag object
