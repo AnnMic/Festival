@@ -129,7 +129,7 @@ public class VisitorController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if(other.gameObject.tag==currentNeed.ToString()){
-			highestPriority.value = 100;
+			//highestPriority.value = 100;
 		}
 		animator.SetInteger("State", AnimationConstants.IDLE);
 	}
