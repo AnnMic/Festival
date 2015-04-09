@@ -84,7 +84,7 @@ public class VisitorController : MonoBehaviour {
 	}
 
 	void Update(){
-		float step = 7.0f * Time.deltaTime;
+		float step = 3.0f * Time.deltaTime;
 
 		transform.position = Vector3.MoveTowards (this.gameObject.transform.position, target.transform.position, step);
 		if (transform.position == target.transform.position) {
