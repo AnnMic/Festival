@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour {
 	public GameObject hygienePrefab;
 
 	SceneObject sceneObject;
+	GameObject selectedObject;
 
 	void Start(){
 		GameObject map = GameObject.FindGameObjectWithTag ("Map");
@@ -21,6 +22,8 @@ public class Shop : MonoBehaviour {
 		sceneObject.hungerObjects.Add (prefab);
 
 		prefab.transform.position = new Vector3(0,0,0);
+		selectedObject = prefab;
+
 	}
 	
 	public void CreateBathroomShop(){
@@ -29,6 +32,7 @@ public class Shop : MonoBehaviour {
 		sceneObject.bladderObjects.Add (prefab);
 
 		prefab.transform.position = new Vector3(0,0,0);
+		selectedObject = prefab;
 	}
 
 	public void CreateFunShop(){	
@@ -37,14 +41,28 @@ public class Shop : MonoBehaviour {
 		sceneObject.funObjects.Add (prefab);
 
 		prefab.transform.position = new Vector3(0,0,0);	
-	}
+		selectedObject = prefab;
 
+	}
 	public void CreateHygieneShop(){	
 		GameObject prefab = (GameObject)Instantiate (hygienePrefab, Vector3.zero, Quaternion.identity);
 		sceneObject.allObjects.Add (prefab);
 		sceneObject.hygieneObjects.Add (prefab);
-
-		prefab.transform.position = new Vector3(0,0,0);	
-
+		
+		prefab.transform.position = new Vector3(0,0,0);
+		selectedObject = prefab;
 	}
+
+	public void ConfirmPosition(){
+		selectedObject = null;
+	}
+	
+	public void RotateObject(){
+		if (selectedObject != null) {
+			selectedObject.transform.Rotate (0, 90, 0);
+		}
+		
+	}
+	
+
 }
