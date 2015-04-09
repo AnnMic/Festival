@@ -71,20 +71,20 @@ public class VisitorController : MonoBehaviour {
 				target = sceneObject.bladderObjects[0];
 			break;
 		case Needs.HUNGER:
-			if(sceneObject.bladderObjects.Count > 0)
+			if(sceneObject.hungerObjects.Count > 0)
 				target = sceneObject.hungerObjects[0];
 			break;
 		case Needs.FUN:			
-			if(sceneObject.bladderObjects.Count > 0)
+			if(sceneObject.funObjects.Count > 0)
 				target = sceneObject.funObjects[0];
 			break;
 		case Needs.HYGIENE:
-			if(sceneObject.bladderObjects.Count > 0)
+			if(sceneObject.hygieneObjects.Count > 0)
 				target = sceneObject.hygieneObjects[0];
 			break;
 		default:
 			Debug.Log("Move to default: fun");
-			if(sceneObject.bladderObjects.Count > 0)
+			if(sceneObject.funObjects.Count > 0)
 				target = sceneObject.funObjects[0];
 
 			break;

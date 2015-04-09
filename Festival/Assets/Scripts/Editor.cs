@@ -53,7 +53,6 @@ public class Editor : MonoBehaviour {
 		if (draggedObject != null){
 			// drag object
 			Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			print (dragOffset.z);
 			draggedObject.transform.position = new Vector3(mousePos.x-dragOffset.x, 
 			                                               draggedObject.transform.position.y,
 			                                               mousePos.z-dragOffset.z -5f);
