@@ -15,6 +15,5 @@ public class SceneObject : MonoBehaviour {
 
 	void Start(){
 
-		Debug.Log ("bladder" + bladderObjects.Count);
 	}
 }
