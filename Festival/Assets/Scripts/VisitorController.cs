@@ -27,8 +27,7 @@ public class VisitorController : MonoBehaviour {
 	SceneObject sceneObject;
 
 	private Animator animator;
-
-
+	
 	void Awake(){
 		visitorPanel = GameObject.FindGameObjectWithTag("VisitorPanel");
 		animator = GetComponent<Animator>();
@@ -43,6 +42,7 @@ public class VisitorController : MonoBehaviour {
 		hunger = gameObject.AddComponent<Need>();
 		hygiene = gameObject.AddComponent<Need> ();
 		fun = gameObject.AddComponent<Need>();
+		thirst = gameObject.AddComponent<Need>();
 
 		GameObject map = GameObject.FindGameObjectWithTag ("Map");
 		sceneObject = map.GetComponent<SceneObject> ();
@@ -58,6 +58,10 @@ public class VisitorController : MonoBehaviour {
 
 		fun.CreateNeed (Needs.FUN, Random.Range(1f, 5f));
 		sortedNeeds.Add (fun);
+
+		thirst.CreateNeed (Needs.THIRST, Random.Range(1f, 5f));
+		sortedNeeds.Add (thirst);
+
 		InvokeRepeating("UpdateNeed", 2, 5f);
 
 		highestPriority = fun;
@@ -102,13 +106,18 @@ public class VisitorController : MonoBehaviour {
 				target = sceneObject.hygieneObjects[random];
 			}
 			break;
+		case Needs.THIRST:
+			if(sceneObject.thirstObjects.Count > 0){
+				random = (int)Random.Range(0,sceneObject.thirstObjects.Count);
+				target = sceneObject.thirstObjects[random];
+			}
+			break;
 		default:
 			Debug.Log("Move to default: fun");
 			if(sceneObject.funObjects.Count > 0){
 				random = (int)Random.Range(0,sceneObject.funObjects.Count);
 				target = sceneObject.funObjects[random];
 			}
-
 			break;
 		}
 	}
@@ -139,6 +148,6 @@ public class VisitorController : MonoBehaviour {
 	void OnMouseDown() {
 		visitorPanel.SetActive (true);
 		VisitorPanel panel = visitorPanel.GetComponent<VisitorPanel> ();
-		panel.SetStats (overallHapiness / 100, name, hunger.value, fun.value,0.5f,hygiene.value,0.5f,bladder.value);
+		panel.SetStats (overallHapiness / 100, name, hunger.value, fun.value, 0.5f, hygiene.value, thirst.value ,bladder.value);
 	}
 }
