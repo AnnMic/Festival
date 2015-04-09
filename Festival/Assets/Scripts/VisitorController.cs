@@ -24,8 +24,15 @@ public class VisitorController : MonoBehaviour {
 
 	SceneObject sceneObject;
 
+	private Animator animator;
+
+	void Avake(){
+		animator = GetComponent<Animator>();
+	}
+
 	// Use this for initialization
 	void Start () {
+		animator = GetComponent<Animator>();
 		target = gameObject;
 
 		bladder = gameObject.AddComponent<Need> ();
@@ -64,6 +71,7 @@ public class VisitorController : MonoBehaviour {
 
 	void MoveTowards(){
 		int random = 0;
+		animator.SetInteger("State", AnimationConstants.WALK);
 		switch (highestPriority.need)
 		{
 		case Needs.BLADDER:
@@ -123,6 +131,7 @@ public class VisitorController : MonoBehaviour {
 		if(other.gameObject.tag==currentNeed.ToString()){
 			highestPriority.value = 100;
 		}
+		animator.SetInteger("State", AnimationConstants.IDLE);
 	}
 
 	void OnMouseDown() {
