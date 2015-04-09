@@ -50,7 +50,7 @@ public class PinchZoom : MonoBehaviour
 		}
 		if (Input.GetAxis("Mouse ScrollWheel") < 0) // backwards?
 		{
-			Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize+1, 10, 90);
+			Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize+2, 10, 90);
 		}
 	}
 }
