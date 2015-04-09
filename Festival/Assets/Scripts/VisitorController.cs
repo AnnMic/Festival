@@ -67,25 +67,35 @@ public class VisitorController : MonoBehaviour {
 		switch (highestPriority.need)
 		{
 		case Needs.BLADDER:
-			if(sceneObject.bladderObjects.Count > 0)
-				target = sceneObject.bladderObjects[0];
+			if(sceneObject.bladderObjects.Count > 0){
+				random = (int)Random.Range(0,sceneObject.bladderObjects.Count);
+				target = sceneObject.bladderObjects[random];
+			}
 			break;
 		case Needs.HUNGER:
-			if(sceneObject.hungerObjects.Count > 0)
-				target = sceneObject.hungerObjects[0];
+			if(sceneObject.hungerObjects.Count > 0){
+				random = (int)Random.Range(0,sceneObject.hungerObjects.Count);
+				target = sceneObject.hungerObjects[random];
+			}
 			break;
 		case Needs.FUN:			
-			if(sceneObject.funObjects.Count > 0)
-				target = sceneObject.funObjects[0];
+			if(sceneObject.funObjects.Count > 0){
+				random = (int)Random.Range(0,sceneObject.funObjects.Count);
+				target = sceneObject.funObjects[random];
+			}
 			break;
 		case Needs.HYGIENE:
-			if(sceneObject.hygieneObjects.Count > 0)
-				target = sceneObject.hygieneObjects[0];
+			if(sceneObject.hygieneObjects.Count > 0){
+				random = (int)Random.Range(0,sceneObject.hygieneObjects.Count);
+				target = sceneObject.hygieneObjects[random];
+			}
 			break;
 		default:
 			Debug.Log("Move to default: fun");
-			if(sceneObject.funObjects.Count > 0)
-				target = sceneObject.funObjects[0];
+			if(sceneObject.funObjects.Count > 0){
+				random = (int)Random.Range(0,sceneObject.funObjects.Count);
+				target = sceneObject.funObjects[random];
+			}
 
 			break;
 		}

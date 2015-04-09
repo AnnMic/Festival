@@ -61,10 +61,6 @@ public class Editor : MonoBehaviour {
 
 
 	public void onAddObject(){
-
-
-		GameObject tile = (GameObject)Instantiate (prefab, Vector3.zero, Quaternion.identity);
-		tile.transform.position = new Vector3(0,0,0);
 		ChangeCameraView ();
 
 		grid.SetActive (true);
