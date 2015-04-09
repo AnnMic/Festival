@@ -23,10 +23,7 @@ public class Grid : MonoBehaviour {
 				grid[row,column] = 0; // all empty
 			}
 		}
+		gameObject.SetActive (false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
