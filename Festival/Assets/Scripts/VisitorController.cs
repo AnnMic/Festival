@@ -15,6 +15,8 @@ public class VisitorController : MonoBehaviour {
 	public float overallHapiness;
 	string name = "Chuck Norris";
 
+	public GameObject visitorPanel;
+
 	// Use this for initialization
 	void Start () {
 		target = gameObject;
@@ -75,7 +77,7 @@ public class VisitorController : MonoBehaviour {
 		}
 	}
 
-	private void CalculateOverallHapiness(){
+	private void CalculateOverallHapiness() {
 		float total = 0;
 		foreach (Need need in sortedNeeds){
 			total += need.value;
@@ -83,7 +85,7 @@ public class VisitorController : MonoBehaviour {
 		overallHapiness = total / (float)sortedNeeds.Count;
 	}
 
-	void Update(){
+	void Update() {
 		float step = 3.0f * Time.deltaTime;
 
 		transform.position = Vector3.MoveTowards (this.gameObject.transform.position, target.transform.position, step);
@@ -93,16 +95,15 @@ public class VisitorController : MonoBehaviour {
 		transform.LookAt (target.transform.position);
 	}
 
-	void OnTriggerEnter(Collider other)
-	{
+	void OnTriggerEnter(Collider other) {
 		if(other.gameObject.tag==currentNeed.ToString()){
 			highestPriority.value = 100;
 		}
 	}
 
-	void OnMouseDown()
-	{
-		Debug.Log("Clicked on visitor");
+	void OnMouseDown() {
+		visitorPanel.SetActive (true);
+		VisitorPanel panel = visitorPanel.GetComponent<VisitorPanel> ();
+		panel.SetStats (overallHapiness / 100, name);
 	}
-
 }
