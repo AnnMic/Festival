@@ -7,6 +7,7 @@ public class Editor : MonoBehaviour {
 	public GameObject topdown;
 	public GameObject ortographic;
 	public GameObject grid;
+	public GameObject panel;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,7 @@ public class Editor : MonoBehaviour {
 		ChangeCameraView ();
 
 		grid.SetActive (true);
+		panel.SetActive (true);
 	}
 
 	void ChangeCameraView(){
@@ -38,6 +40,7 @@ public class Editor : MonoBehaviour {
 		topdown.SetActive(false);
 		ortographic.SetActive (true);
 		grid.SetActive (false);
+		panel.SetActive (false);
 
 	}
 }

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-
 public class VisitorController : MonoBehaviour {
 
 	List<Need> sortedNeeds = new List<Need>();
@@ -14,6 +13,7 @@ public class VisitorController : MonoBehaviour {
 	GameObject target;
 
 	public float overallHapiness;
+	string name = "Chuck Norris";
 
 	// Use this for initialization
 	void Start () {
@@ -98,4 +98,10 @@ public class VisitorController : MonoBehaviour {
 			highestPriority.value = 100;
 		}
 	}
+
+	void OnMouseDown()
+	{
+		Debug.Log("Clicked on visitor");
+	}
+
 }
