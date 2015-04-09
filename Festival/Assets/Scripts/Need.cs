@@ -10,7 +10,7 @@ public enum Needs {
 
 public class Need : MonoBehaviour {
 
-	public Needs need;
+	public Needs need = Needs.HYGIENE;
 	public float decrease = 1f;
 	public float value = 100f;
 

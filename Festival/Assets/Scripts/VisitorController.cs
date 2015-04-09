@@ -54,14 +54,14 @@ public class VisitorController : MonoBehaviour {
 
 		fun.CreateNeed (Needs.FUN, Random.Range(1f, 5f));
 		sortedNeeds.Add (fun);
-		InvokeRepeating("UpdateNeed", 2, 0.3F);
+		InvokeRepeating("UpdateNeed", 2, 5f);
 
 		highestPriority = fun;
 	}
 
 	void UpdateNeed(){
 		sortedNeeds = sortedNeeds.OrderBy(o=>o.value).ToList();
-		Debug.Log("Sets first need" + highestPriority);
+
 		highestPriority = sortedNeeds.First ();
 		MoveTowards ();
 		currentNeed = highestPriority.need;
