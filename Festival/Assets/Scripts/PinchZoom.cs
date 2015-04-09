@@ -44,5 +44,13 @@ public class PinchZoom : MonoBehaviour
 				GetComponent<Camera>().fieldOfView = Mathf.Clamp(GetComponent<Camera>().fieldOfView, 0.1f, 179.9f);
 			}
 		}
+		if (Input.GetAxis("Mouse ScrollWheel") > 0) // forward
+		{
+			Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize-1, 10, 50);
+		}
+		if (Input.GetAxis("Mouse ScrollWheel") < 0) // backwards?
+		{
+			Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize+1, 10, 90);
+		}
 	}
 }
