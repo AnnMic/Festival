@@ -1,0 +1,283 @@
+fileFormatVersion: 2
+guid: b1045e948f2d548cd8b7d0ab9728a9d5
+timeCreated: 1428597471
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Camera
+    100004: Cube
+    100006: Cube.001
+    100008: Cube.002
+    100010: Cube.003
+    100012: Cube.004
+    100014: Cube.005
+    100016: Dummy001
+    100018: Icosphere
+    100020: Lamp
+    100022: Text
+    100024: Cube.006
+    100026: Cube.007
+    100028: Cube.008
+    400000: //RootNode
+    400002: Camera
+    400004: Cube
+    400006: Cube.001
+    400008: Cube.002
+    400010: Cube.003
+    400012: Cube.004
+    400014: Cube.005
+    400016: Dummy001
+    400018: Icosphere
+    400020: Lamp
+    400022: Text
+    400024: Cube.006
+    400026: Cube.007
+    400028: Cube.008
+    2300000: Cube
+    2300002: Cube.001
+    2300004: Cube.002
+    2300006: Cube.003
+    2300008: Cube.004
+    2300010: Cube.005
+    2300012: Icosphere
+    2300014: Text
+    2300016: Cube.006
+    2300018: Cube.007
+    2300020: Cube.008
+    3300000: Cube
+    3300002: Cube.001
+    3300004: Cube.002
+    3300006: Cube.003
+    3300008: Cube.004
+    3300010: Cube.005
+    3300012: Icosphere
+    3300014: Text
+    3300016: Cube.006
+    3300018: Cube.007
+    3300020: Cube.008
+    4300000: Text
+    4300002: Cube.005
+    4300004: Cube.004
+    4300006: Cube.003
+    4300008: Cube.002
+    4300010: Cube.001
+    4300012: Cube
+    4300014: Icosphere
+    4300016: Cube.008
+    4300018: Cube.007
+    4300020: Cube.006
+    7400000: Dummy001|dau|boy_test_anim|BaseLayer
+    7400002: Dummy001|dau|boy_test_anim|BaseLayer.001
+    7400004: Dummy001|dau|boy_test_anim|BaseLayer.002
+    7400006: Dummy001|dau|boy_test_anim|BaseLayer.003
+    7400008: Dummy001|dau|boy_test_anim|BaseLayer.004
+    7400010: Dummy001|Dummy001|boy_test_anim|BaseLayer
+    7400012: Dummy001|L Eye|boy_test_anim|BaseLayer
+    7400014: Dummy001|Object001|boy_test_anim|BaseLayer
+    7400016: Dummy001|Object002|boy_test_anim|BaseLayer
+    7400018: Dummy001|R Eye|boy_test_anim|BaseLayer
+    7400020: Dummy001|tocc|boy_test_anim|BaseLayer
+    7400022: Text|dau|boy_test_anim|BaseLayer
+    7400024: Text|dau|boy_test_anim|BaseLayer.001
+    7400026: Text|dau|boy_test_anim|BaseLayer.002
+    7400028: Text|dau|boy_test_anim|BaseLayer.003
+    7400030: Text|dau|boy_test_anim|BaseLayer.004
+    7400032: Text|Dummy001|boy_test_anim|BaseLayer
+    7400034: Text|L Eye|boy_test_anim|BaseLayer
+    7400036: Text|Object001|boy_test_anim|BaseLayer
+    7400038: Text|Object002|boy_test_anim|BaseLayer
+    7400040: Text|R Eye|boy_test_anim|BaseLayer
+    7400042: Text|tocc|boy_test_anim|BaseLayer
+    7400044: Cube.005|dau|boy_test_anim|BaseLayer
+    7400046: Cube.005|dau|boy_test_anim|BaseLayer.001
+    7400048: Cube.005|dau|boy_test_anim|BaseLayer.002
+    7400050: Cube.005|dau|boy_test_anim|BaseLayer.003
+    7400052: Cube.005|dau|boy_test_anim|BaseLayer.004
+    7400054: Cube.005|Dummy001|boy_test_anim|BaseLayer
+    7400056: Cube.005|L Eye|boy_test_anim|BaseLayer
+    7400058: Cube.005|Object001|boy_test_anim|BaseLayer
+    7400060: Cube.005|Object002|boy_test_anim|BaseLayer
+    7400062: Cube.005|R Eye|boy_test_anim|BaseLayer
+    7400064: Cube.005|tocc|boy_test_anim|BaseLayer
+    7400066: Cube.004|dau|boy_test_anim|BaseLayer
+    7400068: Cube.004|dau|boy_test_anim|BaseLayer.001
+    7400070: Cube.004|dau|boy_test_anim|BaseLayer.002
+    7400072: Cube.004|dau|boy_test_anim|BaseLayer.003
+    7400074: Cube.004|dau|boy_test_anim|BaseLayer.004
+    7400076: Cube.004|Dummy001|boy_test_anim|BaseLayer
+    7400078: Cube.004|L Eye|boy_test_anim|BaseLayer
+    7400080: Cube.004|Object001|boy_test_anim|BaseLayer
+    7400082: Cube.004|Object002|boy_test_anim|BaseLayer
+    7400084: Cube.004|R Eye|boy_test_anim|BaseLayer
+    7400086: Cube.004|tocc|boy_test_anim|BaseLayer
+    7400088: Cube.003|dau|boy_test_anim|BaseLayer
+    7400090: Cube.003|dau|boy_test_anim|BaseLayer.001
+    7400092: Cube.003|dau|boy_test_anim|BaseLayer.002
+    7400094: Cube.003|dau|boy_test_anim|BaseLayer.003
+    7400096: Cube.003|dau|boy_test_anim|BaseLayer.004
+    7400098: Cube.003|Dummy001|boy_test_anim|BaseLayer
+    7400100: Cube.003|L Eye|boy_test_anim|BaseLayer
+    7400102: Cube.003|Object001|boy_test_anim|BaseLayer
+    7400104: Cube.003|Object002|boy_test_anim|BaseLayer
+    7400106: Cube.003|R Eye|boy_test_anim|BaseLayer
+    7400108: Cube.003|tocc|boy_test_anim|BaseLayer
+    7400110: Cube.002|dau|boy_test_anim|BaseLayer
+    7400112: Cube.002|dau|boy_test_anim|BaseLayer.001
+    7400114: Cube.002|dau|boy_test_anim|BaseLayer.002
+    7400116: Cube.002|dau|boy_test_anim|BaseLayer.003
+    7400118: Cube.002|dau|boy_test_anim|BaseLayer.004
+    7400120: Cube.002|Dummy001|boy_test_anim|BaseLayer
+    7400122: Cube.002|L Eye|boy_test_anim|BaseLayer
+    7400124: Cube.002|Object001|boy_test_anim|BaseLayer
+    7400126: Cube.002|Object002|boy_test_anim|BaseLayer
+    7400128: Cube.002|R Eye|boy_test_anim|BaseLayer
+    7400130: Cube.002|tocc|boy_test_anim|BaseLayer
+    7400132: Cube.001|dau|boy_test_anim|BaseLayer
+    7400134: Cube.001|dau|boy_test_anim|BaseLayer.001
+    7400136: Cube.001|dau|boy_test_anim|BaseLayer.002
+    7400138: Cube.001|dau|boy_test_anim|BaseLayer.003
+    7400140: Cube.001|dau|boy_test_anim|BaseLayer.004
+    7400142: Cube.001|Dummy001|boy_test_anim|BaseLayer
+    7400144: Cube.001|L Eye|boy_test_anim|BaseLayer
+    7400146: Cube.001|Object001|boy_test_anim|BaseLayer
+    7400148: Cube.001|Object002|boy_test_anim|BaseLayer
+    7400150: Cube.001|R Eye|boy_test_anim|BaseLayer
+    7400152: Cube.001|tocc|boy_test_anim|BaseLayer
+    7400154: Cube|dau|boy_test_anim|BaseLayer
+    7400156: Cube|dau|boy_test_anim|BaseLayer.001
+    7400158: Cube|dau|boy_test_anim|BaseLayer.002
+    7400160: Cube|dau|boy_test_anim|BaseLayer.003
+    7400162: Cube|dau|boy_test_anim|BaseLayer.004
+    7400164: Cube|Dummy001|boy_test_anim|BaseLayer
+    7400166: Cube|L Eye|boy_test_anim|BaseLayer
+    7400168: Cube|Object001|boy_test_anim|BaseLayer
+    7400170: Cube|Object002|boy_test_anim|BaseLayer
+    7400172: Cube|R Eye|boy_test_anim|BaseLayer
+    7400174: Cube|tocc|boy_test_anim|BaseLayer
+    7400176: Icosphere|dau|boy_test_anim|BaseLayer
+    7400178: Icosphere|dau|boy_test_anim|BaseLayer.001
+    7400180: Icosphere|dau|boy_test_anim|BaseLayer.002
+    7400182: Icosphere|dau|boy_test_anim|BaseLayer.003
+    7400184: Icosphere|dau|boy_test_anim|BaseLayer.004
+    7400186: Icosphere|Dummy001|boy_test_anim|BaseLayer
+    7400188: Icosphere|L Eye|boy_test_anim|BaseLayer
+    7400190: Icosphere|Object001|boy_test_anim|BaseLayer
+    7400192: Icosphere|Object002|boy_test_anim|BaseLayer
+    7400194: Icosphere|R Eye|boy_test_anim|BaseLayer
+    7400196: Icosphere|tocc|boy_test_anim|BaseLayer
+    7400198: Lamp|dau|boy_test_anim|BaseLayer
+    7400200: Lamp|dau|boy_test_anim|BaseLayer.001
+    7400202: Lamp|dau|boy_test_anim|BaseLayer.002
+    7400204: Lamp|dau|boy_test_anim|BaseLayer.003
+    7400206: Lamp|dau|boy_test_anim|BaseLayer.004
+    7400208: Lamp|Dummy001|boy_test_anim|BaseLayer
+    7400210: Lamp|L Eye|boy_test_anim|BaseLayer
+    7400212: Lamp|Object001|boy_test_anim|BaseLayer
+    7400214: Lamp|Object002|boy_test_anim|BaseLayer
+    7400216: Lamp|R Eye|boy_test_anim|BaseLayer
+    7400218: Lamp|tocc|boy_test_anim|BaseLayer
+    7400220: Camera|dau|boy_test_anim|BaseLayer
+    7400222: Camera|dau|boy_test_anim|BaseLayer.001
+    7400224: Camera|dau|boy_test_anim|BaseLayer.002
+    7400226: Camera|dau|boy_test_anim|BaseLayer.003
+    7400228: Camera|dau|boy_test_anim|BaseLayer.004
+    7400230: Camera|Dummy001|boy_test_anim|BaseLayer
+    7400232: Camera|L Eye|boy_test_anim|BaseLayer
+    7400234: Camera|Object001|boy_test_anim|BaseLayer
+    7400236: Camera|Object002|boy_test_anim|BaseLayer
+    7400238: Camera|R Eye|boy_test_anim|BaseLayer
+    7400240: Camera|tocc|boy_test_anim|BaseLayer
+    7400242: Cube.008|dau|boy_test_anim|BaseLayer
+    7400244: Cube.008|dau|boy_test_anim|BaseLayer.001
+    7400246: Cube.008|dau|boy_test_anim|BaseLayer.002
+    7400248: Cube.008|dau|boy_test_anim|BaseLayer.003
+    7400250: Cube.008|dau|boy_test_anim|BaseLayer.004
+    7400252: Cube.008|Dummy001|boy_test_anim|BaseLayer
+    7400254: Cube.008|L Eye|boy_test_anim|BaseLayer
+    7400256: Cube.008|Object001|boy_test_anim|BaseLayer
+    7400258: Cube.008|Object002|boy_test_anim|BaseLayer
+    7400260: Cube.008|R Eye|boy_test_anim|BaseLayer
+    7400262: Cube.008|tocc|boy_test_anim|BaseLayer
+    7400264: Cube.007|dau|boy_test_anim|BaseLayer
+    7400266: Cube.007|dau|boy_test_anim|BaseLayer.001
+    7400268: Cube.007|dau|boy_test_anim|BaseLayer.002
+    7400270: Cube.007|dau|boy_test_anim|BaseLayer.003
+    7400272: Cube.007|dau|boy_test_anim|BaseLayer.004
+    7400274: Cube.007|Dummy001|boy_test_anim|BaseLayer
+    7400276: Cube.007|L Eye|boy_test_anim|BaseLayer
+    7400278: Cube.007|Object001|boy_test_anim|BaseLayer
+    7400280: Cube.007|Object002|boy_test_anim|BaseLayer
+    7400282: Cube.007|R Eye|boy_test_anim|BaseLayer
+    7400284: Cube.007|tocc|boy_test_anim|BaseLayer
+    7400286: Cube.006|dau|boy_test_anim|BaseLayer
+    7400288: Cube.006|dau|boy_test_anim|BaseLayer.001
+    7400290: Cube.006|dau|boy_test_anim|BaseLayer.002
+    7400292: Cube.006|dau|boy_test_anim|BaseLayer.003
+    7400294: Cube.006|dau|boy_test_anim|BaseLayer.004
+    7400296: Cube.006|Dummy001|boy_test_anim|BaseLayer
+    7400298: Cube.006|L Eye|boy_test_anim|BaseLayer
+    7400300: Cube.006|Object001|boy_test_anim|BaseLayer
+    7400302: Cube.006|Object002|boy_test_anim|BaseLayer
+    7400304: Cube.006|R Eye|boy_test_anim|BaseLayer
+    7400306: Cube.006|tocc|boy_test_anim|BaseLayer
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
