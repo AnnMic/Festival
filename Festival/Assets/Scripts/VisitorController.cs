@@ -15,15 +15,26 @@ public class VisitorController : MonoBehaviour {
 	public float overallHapiness;
 	string name = "Chuck Norris";
 
+	public GameObject visitorPanel;
+
+	Need bladder;
+	Need hunger;
+	Need hygiene;
+	Need fun;
+
+	SceneObject sceneObject;
+
 	// Use this for initialization
 	void Start () {
 		target = gameObject;
 
-		Need bladder = gameObject.AddComponent<Need>();
-		Need hunger = gameObject.AddComponent<Need>();
-		Need hygiene = gameObject.AddComponent<Need>();
-		Need fun = gameObject.AddComponent<Need>();
+		bladder = gameObject.AddComponent<Need> ();
+		hunger = gameObject.AddComponent<Need>();
+		hygiene = gameObject.AddComponent<Need> ();
+		fun = gameObject.AddComponent<Need>();
 
+		GameObject map = GameObject.FindGameObjectWithTag ("Map");
+		sceneObject = map.GetComponent<SceneObject> ();
 
 		bladder.CreateNeed (Needs.BLADDER, Random.Range(1f, 5f));
 		sortedNeeds.Add (bladder);
@@ -52,30 +63,45 @@ public class VisitorController : MonoBehaviour {
 	}
 
 	void MoveTowards(){
-
+		int random = 0;
 		switch (highestPriority.need)
 		{
 		case Needs.BLADDER:
-			target = GameObject.FindGameObjectWithTag("BLADDER");
+			if(sceneObject.bladderObjects.Count > 0){
+				random = (int)Random.Range(0,sceneObject.bladderObjects.Count);
+				target = sceneObject.bladderObjects[random];
+			}
 			break;
 		case Needs.HUNGER:
-			target = GameObject.FindGameObjectWithTag("HUNGER");
+			if(sceneObject.hungerObjects.Count > 0){
+				random = (int)Random.Range(0,sceneObject.hungerObjects.Count);
+				target = sceneObject.hungerObjects[random];
+			}
 			break;
-		case Needs.FUN:
-			target = GameObject.FindGameObjectWithTag("FUN");
+		case Needs.FUN:			
+			if(sceneObject.funObjects.Count > 0){
+				random = (int)Random.Range(0,sceneObject.funObjects.Count);
+				target = sceneObject.funObjects[random];
+			}
 			break;
 		case Needs.HYGIENE:
-			target = GameObject.FindGameObjectWithTag("HYGIENE");
+			if(sceneObject.hygieneObjects.Count > 0){
+				random = (int)Random.Range(0,sceneObject.hygieneObjects.Count);
+				target = sceneObject.hygieneObjects[random];
+			}
 			break;
 		default:
 			Debug.Log("Move to default: fun");
-			target = GameObject.FindGameObjectWithTag("FUN");
+			if(sceneObject.funObjects.Count > 0){
+				random = (int)Random.Range(0,sceneObject.funObjects.Count);
+				target = sceneObject.funObjects[random];
+			}
 
 			break;
 		}
 	}
 
-	private void CalculateOverallHapiness(){
+	private void CalculateOverallHapiness() {
 		float total = 0;
 		foreach (Need need in sortedNeeds){
 			total += need.value;
@@ -83,7 +109,7 @@ public class VisitorController : MonoBehaviour {
 		overallHapiness = total / (float)sortedNeeds.Count;
 	}
 
-	void Update(){
+	void Update() {
 		float step = 3.0f * Time.deltaTime;
 
 		transform.position = Vector3.MoveTowards (this.gameObject.transform.position, target.transform.position, step);
@@ -93,16 +119,15 @@ public class VisitorController : MonoBehaviour {
 		transform.LookAt (target.transform.position);
 	}
 
-	void OnTriggerEnter(Collider other)
-	{
+	void OnTriggerEnter(Collider other) {
 		if(other.gameObject.tag==currentNeed.ToString()){
 			highestPriority.value = 100;
 		}
 	}
 
-	void OnMouseDown()
-	{
-		Debug.Log("Clicked on visitor");
+	void OnMouseDown() {
+		visitorPanel.SetActive (true);
+		VisitorPanel panel = visitorPanel.GetComponent<VisitorPanel> ();
+		panel.SetStats (overallHapiness / 100, name, hunger.value, fun.value,0.5f,hygiene.value,0.5f,bladder.value);
 	}
-
 }

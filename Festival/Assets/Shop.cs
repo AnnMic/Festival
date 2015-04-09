@@ -8,29 +8,43 @@ public class Shop : MonoBehaviour {
 	public GameObject funPrefab;
 	public GameObject hygienePrefab;
 
+	SceneObject sceneObject;
+
+	void Start(){
+		GameObject map = GameObject.FindGameObjectWithTag ("Map");
+		sceneObject = map.GetComponent<SceneObject> ();
+	}
 
 	public void CreateFoodShop(){		
-		GameObject tile = (GameObject)Instantiate (foodPrefab, Vector3.zero, Quaternion.identity);
-		tile.transform.position = new Vector3(0,0,0);
+		GameObject prefab = (GameObject)Instantiate (foodPrefab, Vector3.zero, Quaternion.identity);
+		sceneObject.allObjects.Add (prefab);
+		sceneObject.hungerObjects.Add (prefab);
 
+		prefab.transform.position = new Vector3(0,0,0);
 	}
 	
 	public void CreateBathroomShop(){
+		GameObject prefab = (GameObject)Instantiate (bathroomPrefab, Vector3.zero, Quaternion.identity);
+		sceneObject.allObjects.Add (prefab);
+		sceneObject.bladderObjects.Add (prefab);
 
-		GameObject tile = (GameObject)Instantiate (bathroomPrefab, Vector3.zero, Quaternion.identity);
-		tile.transform.position = new Vector3(0,0,0);
+		prefab.transform.position = new Vector3(0,0,0);
 	}
 
 	public void CreateFunShop(){	
-		GameObject tile = (GameObject)Instantiate (funPrefab, Vector3.zero, Quaternion.identity);
-		tile.transform.position = new Vector3(0,0,0);
-		
+		GameObject prefab = (GameObject)Instantiate (funPrefab, Vector3.zero, Quaternion.identity);
+		sceneObject.allObjects.Add (prefab);
+		sceneObject.funObjects.Add (prefab);
+
+		prefab.transform.position = new Vector3(0,0,0);	
 	}
 
-	public void CreateHygieneShop(){
-		
-		GameObject tile = (GameObject)Instantiate (hygienePrefab, Vector3.zero, Quaternion.identity);
-		tile.transform.position = new Vector3(0,0,0);
-		
+	public void CreateHygieneShop(){	
+		GameObject prefab = (GameObject)Instantiate (hygienePrefab, Vector3.zero, Quaternion.identity);
+		sceneObject.allObjects.Add (prefab);
+		sceneObject.hygieneObjects.Add (prefab);
+
+		prefab.transform.position = new Vector3(0,0,0);	
+
 	}
 }
