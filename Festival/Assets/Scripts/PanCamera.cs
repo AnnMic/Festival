@@ -5,9 +5,6 @@ public class PanCamera : MonoBehaviour {
 	public float mouseSensitivity = 1.0f;
 	private Vector3 lastPosition;
 	public float speed = 0.5F;
-	float cameraDistanceMax = 20f;
-	float cameraDistanceMin = 5f;
-	float cameraDistance = 10f;
 	float scrollSpeed = 0.5f;
 
 	void Update() {

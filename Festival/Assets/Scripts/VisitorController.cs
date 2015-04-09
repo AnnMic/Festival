@@ -17,14 +17,19 @@ public class VisitorController : MonoBehaviour {
 
 	public GameObject visitorPanel;
 
+	Need bladder;
+	Need hunger;
+	Need hygiene;
+	Need fun;
+
 	// Use this for initialization
 	void Start () {
 		target = gameObject;
 
-		Need bladder = gameObject.AddComponent<Need>();
-		Need hunger = gameObject.AddComponent<Need>();
-		Need hygiene = gameObject.AddComponent<Need>();
-		Need fun = gameObject.AddComponent<Need>();
+		bladder = gameObject.AddComponent<Need> ();
+		hunger = gameObject.AddComponent<Need>();
+		hygiene = gameObject.AddComponent<Need> ();
+		fun = gameObject.AddComponent<Need>();
 
 
 		bladder.CreateNeed (Needs.BLADDER, Random.Range(1f, 5f));
@@ -104,6 +109,6 @@ public class VisitorController : MonoBehaviour {
 	void OnMouseDown() {
 		visitorPanel.SetActive (true);
 		VisitorPanel panel = visitorPanel.GetComponent<VisitorPanel> ();
-		panel.SetStats (overallHapiness / 100, name);
+		panel.SetStats (overallHapiness / 100, name, hunger.value, fun.value,0.5f,hygiene.value,0.5f,bladder.value);
 	}
 }
