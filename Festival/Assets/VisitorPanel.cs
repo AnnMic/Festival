@@ -11,20 +11,30 @@ public class VisitorPanel : MonoBehaviour {
 	public Slider sleepSlider;  
 	public Slider hygieneSlider;  
 	public Slider thirstSlider;  
-	public Slider bladderSlider;  
+	public Slider bladderSlider;
 
-	public void SetStats(float overallHapiness, string stringName, float hunger, float fun, float sleep, float hygiene, float thirst, float bladder){
+	public Text cashSpent;
 
-		overallSlider.value = overallHapiness;
-		name.text = stringName;
-		hungerSlider.value = hunger;
-		funSlider.value = fun;
-		sleepSlider.value = sleep;
-		hygieneSlider.value = hygiene;
-		thirstSlider.value = thirst;
-		bladderSlider.value = bladder;
+	VisitorController visitor;
 
+	public void SetStats(VisitorController visitorController){
 
+		visitor = visitorController;
+	}
+
+	void Update(){
+		if (visitor != null) {
+			overallSlider.value = (float)visitor.overallHapiness/100;
+			name.text = visitor.name;
+			hungerSlider.value = (float)visitor.hunger.value / 100;
+			funSlider.value = (float)visitor.fun.value / 100;
+			sleepSlider.value = (float)0.5f;
+			hygieneSlider.value = (float)visitor.hygiene.value/100;
+			thirstSlider.value = (float)visitor.thirst.value/100;
+			bladderSlider.value = (float)visitor.bladder.value/100;
+		
+			cashSpent.text = "Cash spent: " + visitor.cashSpent.ToString ();
+		}
 	}
 
 	public void Close(){

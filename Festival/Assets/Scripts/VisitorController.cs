@@ -13,16 +13,16 @@ public class VisitorController : MonoBehaviour {
 	GameObject target;
 
 	public float overallHapiness;
-	string name = "Chuck Norris";
+	public string name = "Chuck Norris";
 
 	GameObject visitorPanel;
 
-	Need bladder;
-	Need hunger;
-	Need hygiene;
-	Need fun;
-	Need sleep;
-	Need thirst;
+	public Need bladder;
+	public Need hunger;
+	public Need hygiene;
+	public Need fun;
+	public Need sleep;
+	public Need thirst;
 
 	SceneObject sceneObject;
 
@@ -30,7 +30,7 @@ public class VisitorController : MonoBehaviour {
 	Income income;
 
 	GameObject exit;
-	int cashSpent = 5;
+	public int cashSpent = 5;
 
 	string[] names = new string[] {"Chuck Norris", "Lessie Pyles", "Adriana Vangorder", "Armand Gridley","Berniece Christy", "Hue Dries",
 		"Idella Dinardo",
@@ -144,7 +144,6 @@ public class VisitorController : MonoBehaviour {
 			}
 			break;
 		default:
-			Debug.Log("Move to default: fun");
 			if(sceneObject.funObjects.Count > 0){
 				random = (int)Random.Range(0,sceneObject.funObjects.Count);
 				target = sceneObject.funObjects[random];
@@ -152,7 +151,7 @@ public class VisitorController : MonoBehaviour {
 			break;
 		}
 		if (cashSpent > 40) {
-			//Time to go home
+			Debug.Log("coing home");	
 			target = exit;
 
 		}
@@ -178,20 +177,19 @@ public class VisitorController : MonoBehaviour {
 		if (other.tag == "Exit") return;
 		if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == currentNeed){
 			highestPriority.value = 100;
-
-			if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == Needs.BLADDER){
+			if(currentNeed == Needs.BLADDER){
 
 			}
-			else if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == Needs.FUN){
+			else if(currentNeed == Needs.FUN){
 				income.AddCash(5);
 				cashSpent += 5;
 			}
-			else if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == Needs.THIRST){
+			else if(currentNeed == Needs.THIRST){
 				income.AddCash(10);
 				cashSpent += 10;
 
 			}
-			else if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == Needs.HUNGER){
+			else if(currentNeed == Needs.HUNGER){
 				income.AddCash(5);
 				cashSpent += 5;
 
@@ -204,6 +202,6 @@ public class VisitorController : MonoBehaviour {
 	void OnMouseDown() {
 		visitorPanel.SetActive (true);
 		VisitorPanel panel = visitorPanel.GetComponent<VisitorPanel> ();
-		panel.SetStats (overallHapiness / 100, name, hunger.value/100, fun.value/100, 0.5f,hygiene.value/100, thirst.value/100 ,bladder.value/100);
+		panel.SetStats (this);
 	}
 }
