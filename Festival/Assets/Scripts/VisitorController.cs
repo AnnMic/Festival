@@ -172,6 +172,7 @@ public class VisitorController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Exit") return;
 		if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == currentNeed){
 			highestPriority.value = 100;
 
