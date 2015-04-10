@@ -47,4 +47,10 @@ public class VisitorsGenerator : MonoBehaviour {
 		yield return new WaitForSeconds(delay);
 		StartCoroutine(GenerateVisitors(Random.Range(minSpawnDelay, maxSpawnDelay)));
 	}
+
+	public void RemoveVisitor(GameObject visitor){
+		visitor.SetActive(false);
+		visitor.transform.SetParent(transform);
+		visitorsPool.Push(visitor);
+	}
 }
