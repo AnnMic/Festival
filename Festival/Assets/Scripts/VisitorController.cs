@@ -103,7 +103,6 @@ public class VisitorController : MonoBehaviour {
 
 		exit = GameObject.FindGameObjectWithTag ("Exit");
 		CalculateOverallHapiness ();
-
 	}
 
 	void UpdateNeed(){
@@ -113,14 +112,11 @@ public class VisitorController : MonoBehaviour {
 		currentNeed = highestPriority.need;
 
 		CalculateOverallHapiness ();
+		SetTargetToMoveTo ();
 
-		if (currentState == States.Walking) {
-		Debug.Log("Move to");
-			MoveTowards ();
-		}
 	}
 
-	void MoveTowards(){
+	void SetTargetToMoveTo(){
 		int random = 0;
 		animator.SetInteger("State", AnimationConstants.WALK);
 		switch (highestPriority.need)
@@ -164,7 +160,7 @@ public class VisitorController : MonoBehaviour {
 			break;
 		}
 		if (cashSpent > 40) {
-			Debug.Log("coing home");	
+			Debug.Log("going home");	
 			target = exit;
 		}
 	}
@@ -189,44 +185,41 @@ public class VisitorController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
+
 		if (other.tag == "Exit") return;
 		if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == currentNeed){
-			highestPriority.value = 100;
-			Debug.Log("fulfill need" + highestPriority.need);
-			currentState = States.Busy;
-			if(currentNeed == Needs.BLADDER){
+			animator.SetInteger("State", AnimationConstants.IDLE);
 
+			if(currentNeed == Needs.BLADDER){
+			}
+			else if(currentNeed == Needs.HYGIENE){
 			}
 			else if(currentNeed == Needs.FUN){
 				income.AddCash(5);
 				cashSpent += 5;
 				animator.SetInteger("State", AnimationConstants.WATCH);
-
 			}
 			else if(currentNeed == Needs.THIRST){
 				income.AddCash(10);
 				cashSpent += 10;
-				animator.SetInteger("State", AnimationConstants.IDLE);
-
 			}
 			else if(currentNeed == Needs.HUNGER){
 				income.AddCash(5);
 				cashSpent += 5;
-				animator.SetInteger("State", AnimationConstants.IDLE);
-
 			}
-			StartCoroutine(Wait());
 
+			highestPriority.value = 100;
+			currentState = States.Busy;
+			StartCoroutine(Wait());
 		}
 	}
 	
 	IEnumerator Wait() {
-		Debug.Log("Wait");
 		yield return new WaitForSeconds(5);
-		Debug.Log("DONE");
 		currentState = States.Walking;
-		MoveTowards ();
-
+		UpdateNeed ();
+		SetTargetToMoveTo ();
+		animator.SetInteger("State", AnimationConstants.WALK);
 	}
 	
 	void OnMouseDown() {
