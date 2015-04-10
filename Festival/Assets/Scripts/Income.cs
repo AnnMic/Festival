@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Income : MonoBehaviour {
 
+	public Texture text;
 	public int cash = 10000;
 
 	// Use this for initialization
