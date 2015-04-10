@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+public enum States {
+	Walking, 
+	Dead, 
+	Busy,
+};
+
 public class VisitorController : MonoBehaviour {
 
 	List<Need> sortedNeeds = new List<Need>();
@@ -31,6 +37,8 @@ public class VisitorController : MonoBehaviour {
 
 	GameObject exit;
 	public int cashSpent = 5;
+	 
+	public States currentState = States.Walking;
 
 	string[] names = new string[] {"Chuck Norris", "Lessie Pyles", "Adriana Vangorder", "Armand Gridley","Berniece Christy", "Hue Dries",
 		"Idella Dinardo",
@@ -102,10 +110,14 @@ public class VisitorController : MonoBehaviour {
 		sortedNeeds = sortedNeeds.OrderBy(o=>o.value).ToList();
 
 		highestPriority = sortedNeeds.First ();
-		MoveTowards ();
 		currentNeed = highestPriority.need;
 
 		CalculateOverallHapiness ();
+
+		if (currentState == States.Walking) {
+		Debug.Log("Move to");
+			MoveTowards ();
+		}
 	}
 
 	void MoveTowards(){
@@ -117,6 +129,7 @@ public class VisitorController : MonoBehaviour {
 			if(sceneObject.bladderObjects.Count > 0){
 				random = (int)Random.Range(0,sceneObject.bladderObjects.Count);
 				target = sceneObject.bladderObjects[random];
+
 			}
 			break;
 		case Needs.HUNGER:
@@ -153,7 +166,6 @@ public class VisitorController : MonoBehaviour {
 		if (cashSpent > 40) {
 			Debug.Log("coing home");	
 			target = exit;
-
 		}
 	}
 
@@ -166,39 +178,57 @@ public class VisitorController : MonoBehaviour {
 	}
 
 	void Update() {
-		float step = 3.0f * Time.deltaTime;
+		if (currentState == States.Walking) {
 
-		transform.position = Vector3.MoveTowards (this.gameObject.transform.position, target.transform.position, step);
+			float step = 3.0f * Time.deltaTime;
 
-		transform.LookAt (target.transform.position);
+			transform.position = Vector3.MoveTowards (this.gameObject.transform.position, target.transform.position, step);
+
+			transform.LookAt (target.transform.position);
+		}
 	}
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Exit") return;
 		if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == currentNeed){
 			highestPriority.value = 100;
+			Debug.Log("fulfill need" + highestPriority.need);
+			currentState = States.Busy;
 			if(currentNeed == Needs.BLADDER){
 
 			}
 			else if(currentNeed == Needs.FUN){
 				income.AddCash(5);
 				cashSpent += 5;
+				animator.SetInteger("State", AnimationConstants.WATCH);
+
 			}
 			else if(currentNeed == Needs.THIRST){
 				income.AddCash(10);
 				cashSpent += 10;
+				animator.SetInteger("State", AnimationConstants.IDLE);
 
 			}
 			else if(currentNeed == Needs.HUNGER){
 				income.AddCash(5);
 				cashSpent += 5;
+				animator.SetInteger("State", AnimationConstants.IDLE);
 
 			}
+			StartCoroutine(Wait());
+
 		}
-		animator.SetInteger("State", AnimationConstants.IDLE);
 	}
+	
+	IEnumerator Wait() {
+		Debug.Log("Wait");
+		yield return new WaitForSeconds(5);
+		Debug.Log("DONE");
+		currentState = States.Walking;
+		MoveTowards ();
 
-
+	}
+	
 	void OnMouseDown() {
 		visitorPanel.SetActive (true);
 		VisitorPanel panel = visitorPanel.GetComponent<VisitorPanel> ();
