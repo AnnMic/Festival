@@ -30,6 +30,7 @@ public class VisitorController : MonoBehaviour {
 	Income income;
 
 	GameObject exit;
+	int cashSpent = 5;
 
 	string[] names = new string[] {"Chuck Norris", "Lessie Pyles", "Adriana Vangorder", "Armand Gridley","Berniece Christy", "Hue Dries",
 		"Idella Dinardo",
@@ -67,10 +68,10 @@ public class VisitorController : MonoBehaviour {
 		GameObject map = GameObject.FindGameObjectWithTag ("Map");
 		sceneObject = map.GetComponent<SceneObject> ();
 
-		bladder.CreateNeed (Needs.BLADDER, Random.Range(3f, 5f));
+		bladder.CreateNeed (Needs.BLADDER, Random.Range(1f, 5f));
 		sortedNeeds.Add (bladder);
 
-		hunger.CreateNeed (Needs.HUNGER, Random.Range(5f, 10f));
+		hunger.CreateNeed (Needs.HUNGER, Random.Range(1f, 5f));
 		sortedNeeds.Add (hunger);
 
 		hygiene.CreateNeed (Needs.HYGIENE, Random.Range(1f, 5f));
@@ -148,7 +149,7 @@ public class VisitorController : MonoBehaviour {
 			}
 			break;
 		}
-		if (fun.value < 10) {
+		if (cashSpent > 40) {
 			//Time to go home
 			target = exit;
 
@@ -181,12 +182,17 @@ public class VisitorController : MonoBehaviour {
 			}
 			else if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == Needs.FUN){
 				income.AddCash(5);
+				cashSpent += 5;
 			}
 			else if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == Needs.THIRST){
 				income.AddCash(10);
+				cashSpent += 10;
+
 			}
 			else if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == Needs.HUNGER){
 				income.AddCash(5);
+				cashSpent += 5;
+
 			}
 		}
 		animator.SetInteger("State", AnimationConstants.IDLE);
