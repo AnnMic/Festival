@@ -29,7 +29,7 @@ public class VisitorController : MonoBehaviour {
 	private Animator animator;
 	Income income;
 
-	public GameObject exit;
+	GameObject exit;
 
 	string[] names = new string[] {"Chuck Norris", "Lessie Pyles", "Adriana Vangorder", "Armand Gridley","Berniece Christy", "Hue Dries",
 		"Idella Dinardo",
@@ -67,16 +67,16 @@ public class VisitorController : MonoBehaviour {
 		GameObject map = GameObject.FindGameObjectWithTag ("Map");
 		sceneObject = map.GetComponent<SceneObject> ();
 
-		bladder.CreateNeed (Needs.BLADDER, Random.Range(1f, 5f));
+		bladder.CreateNeed (Needs.BLADDER, Random.Range(3f, 5f));
 		sortedNeeds.Add (bladder);
 
-		hunger.CreateNeed (Needs.HUNGER, Random.Range(0.5f, 2f));
+		hunger.CreateNeed (Needs.HUNGER, Random.Range(5f, 10f));
 		sortedNeeds.Add (hunger);
 
-		hygiene.CreateNeed (Needs.HYGIENE, Random.Range(0.5f, 1f));
+		hygiene.CreateNeed (Needs.HYGIENE, Random.Range(1f, 5f));
 		sortedNeeds.Add (hygiene);
 
-		fun.CreateNeed (Needs.FUN, Random.Range(1f, 5f));
+		fun.CreateNeed (Needs.FUN, Random.Range(3f, 6f));
 		sortedNeeds.Add (fun);
 
 		thirst.CreateNeed (Needs.THIRST, Random.Range(1f, 5f));
@@ -91,6 +91,8 @@ public class VisitorController : MonoBehaviour {
 
 		int random = (int)Random.Range(0, names.Length);
 		name = names[random];
+
+		exit = GameObject.FindGameObjectWithTag ("Exit");
 	}
 
 	void UpdateNeed(){
@@ -146,7 +148,11 @@ public class VisitorController : MonoBehaviour {
 			}
 			break;
 		}
+		if (fun.value < 10) {
+			//Time to go home
+			target = exit;
 
+		}
 	}
 
 	private void CalculateOverallHapiness() {
