@@ -14,6 +14,7 @@ public class VisitorsGenerator : MonoBehaviour {
 	public GameObject[] visitorPrefabs;
 
 	private Stack<GameObject> visitorsPool;
+	Income income;
 
 	void Awake(){
 		visitorsPool = new Stack<GameObject>(maxVisitors);
@@ -25,6 +26,9 @@ public class VisitorsGenerator : MonoBehaviour {
 			visitor.transform.SetParent(transform);
 			visitorsPool.Push(visitor);
 		}
+		
+		GameObject cash= GameObject.FindGameObjectWithTag ("Cash");
+		income = cash.GetComponent<Income> ();
 	}
 
 	// Use this for initialization
@@ -38,6 +42,7 @@ public class VisitorsGenerator : MonoBehaviour {
 			visitor.SetActive(true);
 			visitor.transform.SetParent(visitorsContainer);
 			visitor.transform.position = visitor.transform.position + new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f));
+			income.AddCash(5);
 		}
 		yield return new WaitForSeconds(delay);
 		StartCoroutine(GenerateVisitors(Random.Range(minSpawnDelay, maxSpawnDelay)));
