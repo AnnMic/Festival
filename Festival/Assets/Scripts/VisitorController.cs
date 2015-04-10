@@ -27,7 +27,8 @@ public class VisitorController : MonoBehaviour {
 	SceneObject sceneObject;
 
 	private Animator animator;
-	
+	Income income;
+
 	void Awake(){
 		visitorPanel = GameObject.FindGameObjectWithTag("VisitorPanel");
 		animator = GetComponent<Animator>();
@@ -65,6 +66,9 @@ public class VisitorController : MonoBehaviour {
 		InvokeRepeating("UpdateNeed", 2, 5f);
 
 		highestPriority = fun;
+
+		GameObject cash= GameObject.FindGameObjectWithTag ("Cash");
+		income = cash.GetComponent<Income> ();
 	}
 
 	void UpdateNeed(){
@@ -141,9 +145,23 @@ public class VisitorController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == currentNeed){
 			highestPriority.value = 100;
+
+			if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == Needs.BLADDER){
+
+			}
+			else if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == Needs.FUN){
+				income.AddCash(5);
+			}
+			else if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == Needs.THIRST){
+				income.AddCash(10);
+			}
+			else if(other.gameObject.GetComponent<FestivalObject> ().fulfillsNeed == Needs.HUNGER){
+				income.AddCash(5);
+			}
 		}
 		animator.SetInteger("State", AnimationConstants.IDLE);
 	}
+
 
 	void OnMouseDown() {
 		visitorPanel.SetActive (true);
