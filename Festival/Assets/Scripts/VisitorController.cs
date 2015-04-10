@@ -37,7 +37,8 @@ public class VisitorController : MonoBehaviour {
 
 	GameObject exit;
 	public int cashSpent = 5;
-	 
+	NavMeshAgent agent;
+
 	public States currentState = States.Walking;
 
 	string[] names = new string[] {"Chuck Norris", "Lessie Pyles", "Adriana Vangorder", "Armand Gridley","Berniece Christy", "Hue Dries",
@@ -103,6 +104,7 @@ public class VisitorController : MonoBehaviour {
 
 		exit = GameObject.FindGameObjectWithTag ("Exit");
 		CalculateOverallHapiness ();
+		agent = GetComponent<NavMeshAgent> ();
 	}
 
 	void UpdateNeed(){
@@ -178,9 +180,10 @@ public class VisitorController : MonoBehaviour {
 
 			float step = 3.0f * Time.deltaTime;
 
-			transform.position = Vector3.MoveTowards (this.gameObject.transform.position, target.transform.position, step);
+		//	transform.position = Vector3.MoveTowards (this.gameObject.transform.position, target.transform.position, step);
+			agent.SetDestination(target.transform.position);
 
-			transform.LookAt (target.transform.position);
+		//	transform.LookAt (target.transform.position);
 		}
 	}
 
