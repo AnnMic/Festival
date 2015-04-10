@@ -29,6 +29,8 @@ public class VisitorController : MonoBehaviour {
 	private Animator animator;
 	Income income;
 
+	public GameObject exit;
+
 	string[] names = new string[] {"Chuck Norris", "Lessie Pyles", "Adriana Vangorder", "Armand Gridley","Berniece Christy", "Hue Dries",
 		"Idella Dinardo",
 		"Burl Starns",
@@ -45,7 +47,6 @@ public class VisitorController : MonoBehaviour {
 		"Eufemia Longo",
 		"Verdie Baltes",
 		"Stan Purpura"};
-
 
 	void Awake(){
 		visitorPanel = GameObject.FindGameObjectWithTag("VisitorPanel");
@@ -145,6 +146,7 @@ public class VisitorController : MonoBehaviour {
 			}
 			break;
 		}
+
 	}
 
 	private void CalculateOverallHapiness() {
