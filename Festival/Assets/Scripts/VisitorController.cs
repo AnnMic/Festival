@@ -29,6 +29,24 @@ public class VisitorController : MonoBehaviour {
 	private Animator animator;
 	Income income;
 
+	string[] names = new string[] {"Chuck Norris", "Lessie Pyles", "Adriana Vangorder", "Armand Gridley","Berniece Christy", "Hue Dries",
+		"Idella Dinardo",
+		"Burl Starns",
+		"Kacie Riccio",
+		"Anne Mumm",
+		"Harrison Sedor",
+		"Sharika Terrell",
+		"Catherin Huffine",
+		"Saul Whigham",
+		"Teofila Morning",
+		"Brinda Alred",
+		"Lacie Milera",
+		"Stacie Pegues",
+		"Eufemia Longo",
+		"Verdie Baltes",
+		"Stan Purpura"};
+
+
 	void Awake(){
 		visitorPanel = GameObject.FindGameObjectWithTag("VisitorPanel");
 		animator = GetComponent<Animator>();
@@ -69,6 +87,9 @@ public class VisitorController : MonoBehaviour {
 
 		GameObject cash= GameObject.FindGameObjectWithTag ("Cash");
 		income = cash.GetComponent<Income> ();
+
+		int random = (int)Random.Range(0, names.Length);
+		name = names[random];
 	}
 
 	void UpdateNeed(){
