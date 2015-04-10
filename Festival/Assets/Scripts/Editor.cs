@@ -15,7 +15,6 @@ public class Editor : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
@@ -62,7 +61,7 @@ public class Editor : MonoBehaviour {
 	}
 
 
-	public void onAddObject(){
+	public void ShowEditor(){
 		ChangeCameraView ();
 
 		grid.SetActive (true);
