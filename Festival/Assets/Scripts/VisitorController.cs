@@ -94,6 +94,8 @@ public class VisitorController : MonoBehaviour {
 		name = names[random];
 
 		exit = GameObject.FindGameObjectWithTag ("Exit");
+		CalculateOverallHapiness ();
+
 	}
 
 	void UpdateNeed(){
@@ -202,6 +204,6 @@ public class VisitorController : MonoBehaviour {
 	void OnMouseDown() {
 		visitorPanel.SetActive (true);
 		VisitorPanel panel = visitorPanel.GetComponent<VisitorPanel> ();
-		panel.SetStats (overallHapiness / 100, name, hunger.value, fun.value, 0.5f, hygiene.value, thirst.value ,bladder.value);
+		panel.SetStats (overallHapiness / 100, name, hunger.value/100, fun.value/100, 0.5f,hygiene.value/100, thirst.value/100 ,bladder.value/100);
 	}
 }

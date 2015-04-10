@@ -23,6 +23,8 @@ public class VisitorPanel : MonoBehaviour {
 		hygieneSlider.value = hygiene;
 		thirstSlider.value = thirst;
 		bladderSlider.value = bladder;
+
+
 	}
 
 	public void Close(){
